@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refuge SEO Savoie 🏔️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .snow {
+            position: fixed;
+            top: -10px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #ffeb3b;
+            margin-top: 15px;
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: shake 3s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .alert-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .service-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .service-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .emergency-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .emergency-btn:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.5);
+        }
+
+        .testimonials {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffd700;
+        }
+
+        .testimonial-author {
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 3em;
+            color: #ffd700;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
+        .faq-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 3px solid #ffd700;
+        }
+
+        .faq-item {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .faq-item h3 {
+            color: #ffd700;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .wall-section {
+            background: rgba(255,215,0,0.2);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 3px solid #ffd700;
+        }
+
+        .wall-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .wall-card {
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .wall-card .number {
+            font-size: 2em;
+            color: #ff6b6b;
+        }
+
+        .weekend-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .boss-section {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 3px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="snow" id="snow"></div>
+    
+    <div class="container">
+        <header>
+            <h1>🏔️ REFUGE SEO SAVOIE ⛷️</h1>
+            <p class="subtitle">"Quand ton site est aussi cassé que tes genoux en fin de saison"</p>
+            <p class="tagline">💼 Vide ton cache et ton sac 🎒</p>
+            <p style="margin-top: 20px; font-size: 1.1em; opacity: 0.9;">Ouvert 24/7 depuis le crash de prod de Noël 2024</p>
+        </header>
+
+        <div class="alert-box">
+            <h2>🚨 T'AS TOUT PÉTÉ ? BIENVENUE AU CLUB ! 🚨</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">On a vu passer des cas qui feraient pleurer Google lui-même...</p>
+            <p>✅ T'as supprimé la base de données en pensant que c'était un backup ?</p>
+            <p>✅ Ton patron a découvert que le site affiche "Hello World" depuis 3 semaines ?</p>
+            <p>✅ T'as fait une migration HTTPS mais t'as oublié les redirections (toutes) ?</p>
+            <p>✅ Google Search Console t'envoie des emails de rupture ?</p>
+            <p>✅ Ton client t'a trouvé sur LinkedIn et change de trottoir quand il te voit ?</p>
+            <p>✅ T'as essayé de réparer et maintenant c'est PIRE qu'avant ?</p>
+            <br>
+            <h2 style="font-size: 2.5em;">🏔️ ON EST LÀ POUR TOI CHAMPION ! 🏔️</h2>
+            <p style="font-size: 1.4em; margin-top: 20px; line-height: 1.6;">
+                On répare ton désastre pendant que tu découvres que la raclette, c'est finalement une excellente thérapie. 
+                Nos chalets sont équipés de murs capitonnés, de papier bulle anti-stress, et d'une ligne directe avec un psy spécialisé en trauma SEO.
+            </p>
+        </div>
+
+        <div class="services">
+            <div class="service-card">
+                <h3>🔧 SOS Réparation Express</h3>
+                <p>T'as mis le feu à 50 000 URLs ? Pas de panique. Notre équipe de pompiers SEO débarque en motoneige avec des extincteurs remplis de redirections 301. 
+                Pendant qu'on répare, tu seras dans un chalet avec vue sur le Mont Blanc, un génépi chaud, et Netflix. On nettoie même ton historique Slack pour effacer tes messages de panique.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>🧀 Thérapie Raclette & Debug</h3>
+                <p>Session intensive de 4h minimum. On analyse chaque erreur 404 en grattant le fromage. 
+                "Tiens, cette URL cassée, elle vient d'où celle-là ?" *gratte gratte* 
+                À la fin de la soirée, ton site est réparé ET tu sais faire une vraie raclette savoyarde. Compétences transférables garanties.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>🎿 Programme Protection Témoin SEO</h3>
+                <p>Ton patron veut ta peau ? On te donne une nouvelle identité, un chalet en altitude avec connexion Starlink, et on met des panneaux "Attention Avalanches" sur tous les chemins qui mènent à toi. 
+                Option premium : on lui envoie des faux rapports Google Analytics où tout va bien. Il pensera que t'es un génie.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>📊 Audit Post-Catastrophe</h3>
+                <p>Notre expert crawle ton site avec Screaming Frog pendant que tu pleures doucement devant un chocolat chaud. 
+                Rapport complet de 247 pages qui commence par "Bon... alors... comment on dit ça gentiment..." 
+                Inclus : un plan de bataille sur 6 mois et une peluche anti-stress en forme de Googlebot.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>💾 Backup d'Urgence + Rituel Spirituel</h3>
+                <p>On fait un snapshot complet de ton site avant qu'il explose définitivement. Ensuite, on t'emmène à la chapelle du village où le curé (ancien dev PHP) bénit tes serveurs. 
+                Méthode prouvée : 3 clients sur 4 ont évité la faillite. Le 4ème fait maintenant du fromage et il est très heureux.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>🚁 Évacuation Hélico Deluxe</h3>
+                <p>Ton boss a pris le premier train pour la Savoie avec une batte de baseball ? On t'exfiltre par les airs direction la Suisse. 
+                Migration de ton site vers des serveurs suisses + nouveau passeport SEO + cours accéléré de neutralité. 
+                "Non monsieur, je n'ai jamais travaillé sur ce site de ma vie."</p>
+            </div>
+
+            <div class="service-card">
+                <h3>🍷 Pack Anti-Dépression Pro</h3>
+                <p>Pour les cas vraiment sévères. Comprend : 1 semaine en chalet tout équipé, accès illimité à la cave à vin, sessions quotidiennes avec notre consultant SEO qui a aussi pété un site de 500K pages en 2019 et qui comprend ta douleur. 
+                Il pleurera avec toi. C'est thérapeutique.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>🎯 Formation "Comment Mentir à Son Boss"</h3>
+                <p>Module de 2 jours intensifs. Tu apprendras à : transformer "j'ai cassé 100K pages" en "on optimise l'architecture", dire "le site est down" comme "on fait une maintenance préventive", et présenter une chute de 90% de trafic comme "une opportunité de rebond stratégique". 
+                Certification officielle incluse.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>⚡ Intervention Miracle de Noël</h3>
+                <p>T'as tout pété le 24 décembre au soir ? Spécialité de la maison. Notre commando débarque en raquettes même sous 2 mètres de neige. 
+                Le 25 au matin, ton site tourne ET tu sais fabriquer un igloo. Tes neveux seront impressionnés, ton patron n'y verra que du feu.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="tel:+33450000000" class="emergency-btn">🆘 J'AI TOUT CASSÉ, VENEZ VITE !</a>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">Ligne d'urgence ouverte même pendant les avalanches</p>
+        </div>
+
+        <div class="testimonials">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5em;">💬 Ils Ont Survécu (Et Vous Aussi Vous Survivrez)</h2>
+            
+            <div class="testimonial">
+                <p>"Vendredi 17h45, j'ai fait un DROP TABLE en prod au lieu du serveur de dev. Mon cerveau a fait un bluescreen. 
+                À 18h30 j'étais dans un TGV direction Chambéry avec mes affaires et mon chat. Lundi matin, nouveau site, nouveaux backups automatiques, et je savais faire du ski de fond. 
+                Mon boss m'a félicité pour 'avoir géré la crise avec calme'. Je lui ai pas dit que j'étais en Savoie. Il croit que je bossais de chez moi ce weekend. 
+                Merci Refuge SEO, vous m'avez sauvé la vie ET ma carrière. PS : Le génépi c'est de la BOMBE."</p>
+                <p class="testimonial-author">- Kevin, 28 ans, Lead Dev SEO (ancien), maintenant Lead Dev SEO (toujours) + Berger (le weekend)</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"J'ai créé 15 000 boucles de redirections parce que j'ai fait tourner mon script... 3 fois de suite. Sans le faire exprès. J'ai paniqué. 
+                J'ai appelé Refuge SEO en pleurant. Ils m'ont dit 'on a connu pire, viens on va manger du fromage'. 
+                48h plus tard : site nickel, santé Ahrefs à 98%, et j'ai appris 47 façons différentes de cuisiner les patates. 
+                Mon boss m'a PROMUE parce que 'j'ai résolu un problème technique complexe en un weekend'. 
+                Il ne saura JAMAIS que c'est moi qui ai créé le problème. Le secret est safe avec l'équipe du refuge. Ils ont même détruit les preuves."</p>
+                <p class="testimonial-author">- Marie, 32 ans, Consultante SEO repentie (maintenant Senior SEO Manager, what the hell)</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"Mon sitemap.xml faisait 890 Mo. OUI. 890 MEGAOCTETS. Google Bot a crash. Littéralement. 
+                J'ai reçu un email de Google qui disait juste 'Why?'. Un seul mot. 'Why?'. J'ai pleuré. 
+                Refuge SEO m'a accueilli avec une couverture chauffante et un bol de soupe. On a passé 3 jours à nettoyer ce bordel monstre. 
+                Maintenant mon sitemap fait 2 Mo et il est propre comme un sou neuf. J'ai aussi découvert la tartiflette, la fondue, la raclette, et 4 autres plats au fromage dont je ne me souviens plus du nom mais qui étaient incroyables. 
+                10/10 would crash Google Bot again just to come back."</p>
+                <p class="testimonial-author">- Thomas, 35 ans, CTO en reconstruction émotionnelle</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"J'ai fait une migration de 300 000 pages sans aucune redirection. AUCUNE. Zéro. Nada. Que dalle. 
+                Trafic passé de 2 millions de visiteurs/mois à... 47. QUARANTE-SEPT. Mon client a failli faire un AVC au téléphone. 
+                Je me suis enfui en Savoie comme si ma vie en dépendait (parce qu'elle en dépendait littéralement). 
+                L'équipe du refuge a monté 300 000 redirections EN UNE SEMAINE. TOUS. LES. LIENS. 
+                On a même récupéré 95% du trafic. Mon client pense que c'était 'un bug Google temporaire' et que 'j'ai bien géré la pression'. 
+                J'ai eu une PRIME. Une PRIME bordel. Je leur ai envoyé la moitié en fromage au refuge. Ils le méritent. Je leur dois ma carrière, mon appart, et probablement mon mariage."</p>
+                <p class="testimonial-author">- Julien, 29 ans, SEO Manager qui a frôlé le licenciement et le divorce</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"J'ai mis NOINDEX sur TOUTES les pages du site principal de ma boîte. TOUTES. Le site e-commerce qui fait 50M€ de CA par an. 
+                Google nous a désindexés en 4 jours. LE SITE ENTIER. Disparu des résultats. Mon patron m'a convoqué à 9h le lundi matin. 
+                À 9h05 j'étais dans ma voiture direction la Savoie sans même prendre mes affaires. J'ai conduit 6h non-stop en sueur froide. 
+                Refuge SEO m'a accueilli avec une bière et un 'respire, on va réparer ça'. Ils m'ont caché dans un chalet en altitude avec wifi Starlink pendant qu'ils nettoyaient le massacre. 
+                Réindexation complète en 10 jours. TOUT est revenu. Trafic, CA, tout. Mon boss pense que c'était 'une pénalité Google temporaire' et que 'j'ai bien négocié avec Google' (???). 
+                J'ai toujours mon job. Je suis toujours vivant. Merci putain."</p>
+                <p class="testimonial-author">- Alexandre, 31 ans, ancien futur chômeur, maintenant Directeur SEO (WTF)</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"Mon cas est... spécial. J'ai tellement foiré mon site que tous les sites qui m'avaient fait des backlinks ont aussi planté. 
+                Genre, j'ai créé une bombe SEO nucléaire. Une RÉACTION EN CHAÎNE. Je recevais des appels de gens que je connaissais même pas qui me gueulaient dessus parce que LEUR site était down à cause du mien. 
+                J'ai cru que j'allais finir en prison pour cyberterrorisme involontaire. Refuge SEO a activé le 'Protocole Tchernobyl'. Bunker spécial, isolation totale, intervention d'urgence sur MON site PLUS tous les sites contaminés. 
+                Ils ont envoyé des bouteilles de Chartreuse à tous les webmasters touchés avec un mot 'd'excuse de la montagne'. Tout le monde a cru à un bug serveur généralisé. 
+                Personne n'a su que c'était moi. Personne. Je suis toujours en poste. L'équipe du refuge a sauvé ma vie, ma carrière, et probablement évité un procès international. 
+                Je leur envoie une meule de Beaufort tous les 6 mois. C'est le minimum."</p>
+                <p class="testimonial-author">- [IDENTITÉ PROTÉGÉE], 34 ans, Patient Zéro de la Catastrophe SEO de 2024</p>
+            </div>
+
+            <div class="testimonial">
+                <p>"J'ai supprimé le fichier robots.txt un vendredi à 18h15. Puis j'ai éteint mon ordi et je suis parti en weekend sans me rendre compte. 
+                Lundi matin, 347 emails non lus. Mon boss, le CTO, le CEO, les clients, Google Search Console, même ma MÈRE m'avait écrit (comment elle a eu mon email pro ??). 
+                J'ai direct pris un Uber pour la gare. Train pour Chambéry. Taxi pour le refuge. Arrivé à 14h, site réparé à 17h. 
+                J'ai passé 3 jours là-haut à 'télé-travailler' (regarder Netflix et manger du fromage) pendant que l'équipe finalisait. 
+                Je suis revenu au bureau le jeudi avec un bronzage de montagne. Tout le monde a cru que j'avais géré la crise depuis chez moi en bossant 18h par jour. 
+                J'ai eu les félicitations de toute la boîte. Je me sens coupable mais... pas tant que ça finalement."</p>
+                <p class="testimonial-author">- Maxime, 26 ans, Junior SEO promu Senior en 3 jours (merci le refuge)</p>
+            </div>
+        </div>
+
+        <div class="boss-section">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">😡 TÉMOIGNAGES DE BOSS EN COLÈRE (Interceptés)</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; font-style: italic;">Emails qu'on a intercepté avant qu'ils arrivent à nos clients cachés chez nous</p>
+            
+            <div class="testimonial">
+                <p style="color: #ffcccc;">"KEVIN TU ES OÙ ?? Le site affiche 'Error 500' depuis vendredi soir et tu réponds pas à tes mails !!! 
+                Le client me harcèle, Google Analytics pleure, et toi tu es INTROUVABLE. Si tu lis ça, rappelle-moi IMMÉDIATEMENT ou je viens te chercher moi-même !!"</p>
+                <p class="testimonial-author" style="color: #ff9999;">- Patrick, CEO (Kevin était en Savoie en train de manger une fondue, tout va bien maintenant)</p>
+            </div>
+
+            <div class="testimonial">
+                <p style="color: #ffcccc;">"Marie, c'est QUOI ce délire avec les redirections ??! J'ai reçu 50 appels de clients qui disent qu'ils tournent en boucle sur le site !!! 
+                Tu peux m'expliquer COMMENT on en arrive là ??? RAPPELLE-MOI DE TOUTE URGENCE."</p>
+                <p class="testimonial-author" style="color: #ff9999;">- Sophie, Directrice Marketing (Marie était en thérapie raclette, elle a tout réparé depuis, merci Refuge SEO)</p>
+            </div>
+
+            <div class="testimonial">
+                <p style="color: #ffcccc;">"Julien, je viens de regarder Google Analytics. Le trafic est passé de 2 MILLIONS à 47 visiteurs. 
+                QUARANTE-SEPT. Je répète : QUATRE-SEPT. C'est une blague ? Tu as 2h pour me rappeler avec des explications avant que j'appelle les RH."</p>
+                <p class="testimonial-author" style="color: #ff9999;">- Marc, CMO (Julien a récupéré 95% du trafic depuis son chalet savoyard, Marc ne sait toujours rien)</p>
+            </div>
+        </div>
+
+        <div class="price-section">
+            <h2 style="font-size: 2.5em; margin-bottom: 20px;">💰 NOS TARIFS (Honnêtes)</h2>
+            <div class="price">GRATUIT*</div>
+            <p style="font-size: 1.2em;">*Si tu ramènes du bon fromage ET que tu racontes en détail comment t'as réussi à faire un tel massacre</p>
+            <br>
+            <p style="font-size: 1.1em; margin-top: 20px;">On archive toutes les histoires pour notre musée du désastre SEO. Ton cas servira à former les futures générations.</p>
+            <br>
+            <p style="font-size: 1em; opacity: 0.8; margin-top: 20px;">Formule Premium avec évacuation hélico : 3 meules de Beaufort + une bouteille de Chartreuse verte (pas la jaune, on a des standards)</p>
+            <p style="font-size: 0.9em; opacity: 0.7; margin-top: 10px;">Formule "Je Suis Vraiment Dans La Merde" : On accepte aussi la Guinness, le Whisky écossais, ou tout alcool qui aide à oublier</p>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.4); padding: 40px; border-radius: 15px; margin: 40px 0;">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">🎯 NOS GARANTIES (Sérieuses)</h2>
+            <div style="font-size: 1.2em; line-height: 2;">
+                <p>✅ Redirections 301 propres ou remboursé en fondue 4 fromages</p>
+                <p>✅ Cache vidé sous 5 minutes (cache navigateur, serveur, ET existentiel)</p>
+                <p>✅ Aucun boss ne franchira nos cols enneigés (on a des guetteurs)</p>
+                <p>✅ Anonymat total garanti (on brouille ton IP dans la neige, littéralement)</p>
+                <p>✅ Vue sur le Mont Blanc pendant les réparations (thérapie visuelle incluse)</p>
+                <p>✅ Cours de ski offert si la réparation prend plus de 3 jours</p>
+                <p>✅ Session psy offerte si tu fais des cauchemars de Google Bot</p>
+                <p>✅ On détruit toutes les preuves de ton passage (logs serveur, historique, témoins)</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">❓ FAQ - TU T'ES RECONNU DANS UN DE CES CAS ? ❓</h2>
+            
+            <div class="faq-item">
+                <h3>🔥 "J'ai supprimé le robots.txt en prod un vendredi à 18h..."</h3>
+                <p style="font-size: 1.1em;">Ah, le classique du vendredi soir. On connaît par cœur. Arrive directement, on a déjà le chalet chauffé, Google Search Console ouvert sur 3 écrans, et le premier génépi qui t'attend. On va réparer ça avant que ton lundi devienne un cauchemar. Amène juste ta carte bleue pour le train et ton courage.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>💀 "J'ai mis NOINDEX sur toutes les pages du site... y compris la homepage"</h3>
+                <p style="font-size: 1.1em;">Le grand classique ! Google t'a remercié pour lui avoir simplifié le boulot en te désindexant en mode turbo. On a un protocole spécial pour ça : isolation complète en montagne + réindexation forcée + session de cris primal face au Mont Blanc pour évacuer la frustration. Efficacité garantie ou tu repars avec un emploi de berger (qui paye mieux que tu crois).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🌊 "Mon sitemap.xml fait 500 Mo et Google Bot a crash..."</h3>
+                <p style="font-size: 1.1em;">Viens, on va nettoyer ce bordel autour d'une fondue. Règle du jeu : chaque erreur trouvée = une patate de plus. T'auras bouffé tout le caquelon avant qu'on ait fini, mais ton sitemap sera propre comme un chalet après le passage de Marie Kondo. Bonus : tu repartiras avec 15 recettes de plats savoyards.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🎰 "J'ai fait une redirection de TOUT le site vers la homepage... par accident"</h3>
+                <p style="font-size: 1.1em;">Ah, le mode "panic" niveau expert. Pas de jugement ici, on a tous été là (enfin, les meilleurs d'entre nous). On répare, on ventile en raquettes, et personne ne saura jamais que tu es passé par là. Serment savoyard. On a même un contrat de confidentialité signé devant notaire dans la chapelle du village.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>⚰️ "J'ai migré 300K pages sans redirections et perdu 90% du trafic..."</h3>
+                <p style="font-size: 1.1em;">Courage champion, t'es au bon endroit. On a vu BIEN pire. Genre le mec qui a perdu 100% en mettant le site en maintenance pendant 3 semaines "pour tester". Il fabrique maintenant du Reblochon AOC et il gagne mieux sa vie qu'avant. Mais toi, on peut encore te sauver. Probablement. Peut-être. On va essayer en tout cas.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🔥 "Mon client vient de découvrir Google Analytics... 6 mois après le lancement"</h3>
+                <p style="font-size: 1.1em;">Ah la boulette ! Mais techniquement : pas de tracking = pas de preuves = pas de problème non ? On installe ça discrètement, on backdate les données avec de la magie noire savoyarde (et un peu de Python), et hop. Données antidatées comme un bon Beaufort de 18 mois. Ton client n'y verra que du feu. Secret professionnel garanti.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>☢️ "J'ai tellement foiré que TOUS les sites avec backlinks vers moi ont aussi planté..."</h3>
+                <p style="font-size: 1.1em;">OH PUTAIN. T'as créé une RÉACTION EN CHAÎNE NUCLÉAIRE du SEO. C'est du niveau LÉGENDAIRE ! T'es le patient zéro d'une pandémie digitale ! Viens IMMÉDIATEMENT, on active le Protocole Tchernobyl : bunker spécial niveau -3, équipe d'intervention en combinaison anti-radiation SEO, et on envoie des bouteilles de Chartreuse + lettres d'excuses manuscrites à TOUS tes backlinks. On va nettoyer ton désastre avant que ça devienne un cas d'école dans les formations SEO. 🚨🚨🚨</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>📚 "J'ai appris le SEO sur le Site du Zéro en 2008... et j'ai rien mis à jour depuis"</h3>
+                <p style="font-size: 1.1em;">Ahhhhh le Site du Zéro ! L'époque où on mettait 47 mots-clés dans les meta keywords et où on croyait que c'était utile ! Où "optimisation SEO" voulait dire "texte blanc sur fond blanc" et keyword stuffing à gogo ! 
+                <br><br>
+                Mon gars, on est en 2025. Google est devenu intelligent (enfin, presque). Les techniques de 2008 sont maintenant considérées comme du BLACK HAT niveau criminel. Ton site doit ressembler à un musée du spam ! 
+                <br><br>
+                Viens, on va te remettre à niveau. Formation intensive : SEO moderne + désintoxication des vieilles pratiques + session "pourquoi meta keywords ne sert plus à rien depuis 2009". 
+                On va aussi te montrer que non, acheter 1000 backlinks sur Fiverr pour 5€, ce n'est PAS une bonne stratégie. 
+                <br><br>
+                Bonus : on brûle symboliquement tous tes vieux tutos devant la cheminée du chalet. C'est cathartique.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>💣 "J'ai lancé un script de génération automatique de contenu IA et maintenant j'ai 500K pages de texte générique..."</h3>
+                <p style="font-size: 1.1em;">Ahhhhh le piège classique de 2024-2025 ! "L'IA va révolutionner le SEO" qu'ils disaient. Maintenant t'as 500 000 pages qui se ressemblent toutes et Google te regarde comme si t'avais tué son chien. 
+                <br><br>
+                On va nettoyer ce carnage page par page. Pendant ce temps, tu vas apprendre que "qualité > quantité" et que Google préfère 100 vraies pages utiles à 500K pages générées en 3h par ChatGPT. 
+                On te forme aussi au "comment utiliser l'IA intelligemment sans se faire bannir". Ça existe, promis.</p>
+            </div>
+        </div>
+
+        <div class="wall-section">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">🏆 WALL OF SHAME (Honorifique)</h2>
+            <p style="text-align: center; font-size: 1.3em; margin-bottom: 30px; font-style: italic;">Le Panthéon des Plus Belles Catastrophes Jamais Réparées</p>
+            
+            <div class="wall-grid">
+                <div class="wall-card">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🥇</div>
+                    <h4 style="color: #ffd700; margin-bottom: 10px;">Champion Absolu 2025</h4>
+                    <p class="number">847 392</p>
+                    <p>erreurs 404 créées en UNE SEULE commande SQL un samedi matin</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Il voulait juste changer un prix</p>
+                </div>
+                
+                <div class="wall-card">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🏔️</div>
+                    <h4 style="color: #ffd700; margin-bottom: 10px;">Record de Vitesse</h4>
+                    <p class="number">3 min 47s</p>
+                    <p>pour désindexer complètement un site de 50 000 pages</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Un talent naturel</p>
+                </div>
+                
+                <div class="wall-card">
+                    <div style="font-size: 3em; margin-bottom: 10px;">💣</div>
+                    <h4 style="color: #ffd700; margin-bottom: 10px;">Prix Créativité</h4>
+                    <p class="number">∞</p>
+                    <p>boucle infinie de redirections qui a fait crasher Google Bot 3 fois</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Google a envoyé un email : "Please stop"</p>
+                </div>
+
+                <div class="wall-card">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🎓</div>
+                    <h4 style="color: #ffd700; margin-bottom: 10px;">Prix Site du Zéro</h4>
+                    <p class="number">2008-2025</p>
+                    <p>17 ans sans mise à jour SEO, toujours des meta keywords</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Le site fonctionnait "bien" selon lui</p>
+                </div>
+
+                <div class="wall-card">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🤖</div>
+                    <h4 style="color: #ffd700; margin-bottom: 10px;">Prix IA Foireuse</h4>
+                    <p class="number">500 000</p>
+                    <p>pages générées par ChatGPT en une nuit, ban Google en 48h</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">"Mais l'IA c'est l'avenir !"</p>
+                </div>
+
+                <div class="wall-card">
+                    <div style="font-size: 3em; margin-bottom: 10px;">☢️</div>
+                    <h4 style="color: #ffd700; margin-bottom: 10px;">Prix Tchernobyl SEO</h4>
+                    <p class="number">87 sites</p>
+                    <p>infectés par contamination via backlinks, réaction en chaîne nucléaire</p>
+                    <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">Patient Zéro toujours anonyme</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="weekend-section">
+            <h2 style="font-size: 2.5em; margin-bottom: 20px;">⏰ OFFRE SPÉCIALE WEEKEND DE LA MORT</h2>
+            <p style="font-size: 1.5em; margin: 20px 0;">T'as pété ton site un vendredi soir et ton boss te convoque lundi 9h ?</p>
+            <p style="font-size: 2.5em; color: #ffd700; margin: 30px 0; font-weight: bold;">PACK SURVIE 48H "CODE RED"</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 10px; margin: 20px 0;">
+                <p style="font-size: 1.2em; line-height: 2;">
+                    🏠 Chalet isolé avec Starlink (ping 12ms, on est pas des sauvages)<br>
+                    ☕ Café illimité + Red Bull à volonté + Aspirine préventive<br>
+                    🍕 Livraison pizza jusqu'au refuge (oui, même à 2000m d'altitude)<br>
+                    🔧 Intervention IMMÉDIATE de notre meilleur dev SEO (il a déjà sauvé 47 carrières)<br>
+                    📱 Ligne sécurisée cryptée pour mentir à ton boss ("Oui je bosse de chez moi ce weekend")<br>
+                    🎿 Forfait ski pour décompresser le dimanche (thérapie par le froid)<br>
+                    🧘 Session méditation anti-stress avec vue Mont Blanc<br>
+                    🍷 Accès à notre cave à vin "Spéciale Dépression SEO"<br>
+                    📄 On te prépare même un PowerPoint bidon pour lundi matin si besoin
+                </p>
+            </div>
+            <p style="font-size: 1.3em; margin-top: 20px;">Tout ça pour seulement : <span style="color: #ffd700; font-size: 1.5em;">2 bouteilles de Chartreuse verte</span></p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 10px;">*Pas de Chartreuse ? On accepte : Whisky 12 ans minimum, Rhum arrangé maison, Guinness (beaucoup de Guinness), ou crypto (on est modernes)</p>
+            <p style="font-size: 0.8em; opacity: 0.7; margin-top: 10px;">**En cas de désespoir extrême : on accepte aussi les promesses de meules de Beaufort livrables sous 6 mois</p>
+        </div>
+
+        <footer>
+            <h3 style="font-size: 2.5em; margin-bottom: 20px;">📍 ON T'ATTEND EN SAVOIE !</h3>
+            <p style="font-size: 1.4em; margin: 20px 0; color: #ffd700;">🏔️ Chalet du Dev Désespéré 🏔️</p>
+            <p style="font-size: 1.1em; margin: 10px 0;">Route des Redirections Cassées</p>
+            <p style="font-size: 1.1em; margin: 10px 0;">Col des Erreurs 404</p>
+            <p style="font-size: 1.1em; margin: 10px 0;">73000 Chambéry, Savoie, France</p>
+            <p style="margin-top: 30px; font-size: 1.3em;">☎️ Hotline Urgence 24/7 : <strong style="color: #ffd700;">04-SEO-HELP-911</strong></p>
+            <p style="font-size: 1em; opacity: 0.8; margin-top: 10px;">Aussi disponible sur WhatsApp, Signal, Telegram, et pigeon voyageur en cas d'urgence</p>
+            
+            <div style="margin-top: 40px; padding: 30px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                <p style="font-size: 1.3em; font-style: italic; color: #ffeb3b; margin-bottom: 20px;">
+                    "Parce que tout le monde a le droit à une seconde chance... et à une bonne raclette !"
+                </p>
+                <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                    Chez Refuge SEO Savoie, on ne juge pas. On répare. <br>
+                    On a tous pété des sites. Certains plus spectaculairement que d'autres. <br>
+                    On est là pour toi, champion. Même si tu viens d'exploser ton site en prod. <br>
+                    Même si ton boss veut ta peau. Même si Google t'a blacklisté. <br>
+                    On va réparer. Ensemble. Autour d'un fromage qui coule.
+                </p>
+            </div>
+
+            <div style="margin-top: 40px; font-size: 0.9em; opacity: 0.7;">
+                <p>🧀 Refuge SEO Savoie - Depuis 2025</p>
+                <p style="margin-top: 10px;">On répare les sites, les carrières, et les âmes brisées par le SEO</p>
+                <p style="margin-top: 10px;">Agréé par l'Association Internationale des Devs en Détresse (certifications fictives mais le fromage est bien réel)</p>
+                <p style="margin-top: 20px; font-size: 0.8em;">Mentions légales : Aucun boss n'a été blessé pendant nos interventions. La plupart ne savent même pas qu'on existe.</p>
+                <p style="margin-top: 5px; font-size: 0.8em;">Protection des données : On détruit toutes les preuves. RGPD friendly. Très friendly même.</p>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.1); border-radius: 10px; border: 2px solid #ffd700;">
+                <p style="font-size: 1.2em; font-weight: bold; color: #ffd700;">🎓 ALUMNI SITE DU ZÉRO</p>
+                <p style="margin-top: 10px; font-size: 1em;">Mention spéciale à tous ceux qui ont appris le SEO sur le Site du Zéro entre 2005 et 2012</p>
+                <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.9;">On sait que vous mettez encore des meta keywords. On ne vous juge pas. On vous rééduque avec amour et fromage. ❤️</p>
+                <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.8; font-style: italic;">"Merci Mateo21 et M@teo21 pour les tutos qui nous ont fait croire que le SEO c'était facile"</p>
+            </div>
+
+            <p style="margin-top: 40px; font-size: 1.3em; color: #ffd700;">
+                ⛷️ Vide ton cache et ton sac, on s'occupe du reste 🏔️
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            
+            document.getElementById('snow').appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        setInterval(createSnowflake, 300);
+    </script>
+</body>
+</html>
